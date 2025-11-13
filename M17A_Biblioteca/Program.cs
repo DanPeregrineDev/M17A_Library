@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace M17A_Biblioteca
+namespace M17A_Library
 {
     internal static class Program
     {

@@ -8,17 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace M17A_Library
+namespace M17A_Library.Book
 {
-    public partial class fMain : Form
+    public partial class fBook : Form
     {
-        Database database;
-
-        public fMain()
+        public fBook()
         {
             InitializeComponent();
-
-            database = new Database("Library");
         }
     }
 }
