@@ -44,6 +44,32 @@ namespace M17A_Library
 
             SqlCommand command = new SqlCommand(sql, sqlConnection);
             command.ExecuteNonQuery();
+
+            sql = $"CREATE DATABASE {this.databaseName} ON PRIMARY (NAME = {this.databaseName}, FILENAME = '{this.databasePath}')";
+
+            command = new SqlCommand(sql, sqlConnection);
+            command.ExecuteNonQuery();
+
+            sqlConnection.ChangeDatabase(this.databaseName);
+
+            sql = @"CREATE TABLE Livros(
+                  
+                      nLivro INT IDENTITY PRIMARY KEY,
+
+                      Titulo VARCHAR(50) NOT NULL,
+                      Autor VARCHAR(100) NOT NULL,
+                      Isbn VARCHAR(13) NOT NULL,
+                      Ano INT CHECK(ANO > 0) NOT NULL,
+                      DataAquisicao DATE DEFAULT GETDATE(),
+                      Preco MONEY CHECK(Preco >= 0) NOT NULL,
+                      Capa VARCHAR(500),
+                      Estado BIT DEFAULT 1
+
+                    )";
+
+            command = new SqlCommand(sql, sqlConnection);
+            command.ExecuteNonQuery();
+            command.Dispose();
         }
     }
 }
