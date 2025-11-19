@@ -45,7 +45,13 @@
             this.B_OpenFile = new System.Windows.Forms.Button();
             this.B_Save = new System.Windows.Forms.Button();
             this.LB_Feedback = new System.Windows.Forms.Label();
+            this.DGV_Books = new System.Windows.Forms.DataGridView();
+            this.TB_Search = new System.Windows.Forms.TextBox();
+            this.BT_Delete = new System.Windows.Forms.Button();
+            this.BT_Print = new System.Windows.Forms.Button();
+            this.BT_Edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PB_CoverImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Books)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_01
@@ -177,11 +183,11 @@
             // 
             // B_Save
             // 
-            this.B_Save.Location = new System.Drawing.Point(62, 692);
+            this.B_Save.Location = new System.Drawing.Point(51, 611);
             this.B_Save.Name = "B_Save";
-            this.B_Save.Size = new System.Drawing.Size(351, 71);
+            this.B_Save.Size = new System.Drawing.Size(362, 71);
             this.B_Save.TabIndex = 16;
-            this.B_Save.Text = "Guardar";
+            this.B_Save.Text = "Inserir";
             this.B_Save.UseVisualStyleBackColor = true;
             this.B_Save.Click += new System.EventHandler(this.B_Save_Click);
             // 
@@ -193,11 +199,63 @@
             this.LB_Feedback.Size = new System.Drawing.Size(0, 25);
             this.LB_Feedback.TabIndex = 17;
             // 
+            // DGV_Books
+            // 
+            this.DGV_Books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Books.Location = new System.Drawing.Point(471, 115);
+            this.DGV_Books.Name = "DGV_Books";
+            this.DGV_Books.RowHeadersWidth = 82;
+            this.DGV_Books.RowTemplate.Height = 33;
+            this.DGV_Books.Size = new System.Drawing.Size(690, 407);
+            this.DGV_Books.TabIndex = 18;
+            this.DGV_Books.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Books_CellClick);
+            // 
+            // TB_Search
+            // 
+            this.TB_Search.Location = new System.Drawing.Point(471, 66);
+            this.TB_Search.MaxLength = 50;
+            this.TB_Search.Name = "TB_Search";
+            this.TB_Search.Size = new System.Drawing.Size(690, 31);
+            this.TB_Search.TabIndex = 19;
+            // 
+            // BT_Delete
+            // 
+            this.BT_Delete.Location = new System.Drawing.Point(471, 538);
+            this.BT_Delete.Name = "BT_Delete";
+            this.BT_Delete.Size = new System.Drawing.Size(200, 53);
+            this.BT_Delete.TabIndex = 20;
+            this.BT_Delete.Text = "Apagar";
+            this.BT_Delete.UseVisualStyleBackColor = true;
+            this.BT_Delete.Click += new System.EventHandler(this.BT_Delete_Click);
+            // 
+            // BT_Print
+            // 
+            this.BT_Print.Location = new System.Drawing.Point(961, 538);
+            this.BT_Print.Name = "BT_Print";
+            this.BT_Print.Size = new System.Drawing.Size(200, 53);
+            this.BT_Print.TabIndex = 21;
+            this.BT_Print.Text = "Imprimir";
+            this.BT_Print.UseVisualStyleBackColor = true;
+            // 
+            // BT_Edit
+            // 
+            this.BT_Edit.Location = new System.Drawing.Point(714, 538);
+            this.BT_Edit.Name = "BT_Edit";
+            this.BT_Edit.Size = new System.Drawing.Size(200, 53);
+            this.BT_Edit.TabIndex = 22;
+            this.BT_Edit.Text = "Editar";
+            this.BT_Edit.UseVisualStyleBackColor = true;
+            // 
             // fBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 818);
+            this.ClientSize = new System.Drawing.Size(1220, 724);
+            this.Controls.Add(this.BT_Edit);
+            this.Controls.Add(this.BT_Print);
+            this.Controls.Add(this.BT_Delete);
+            this.Controls.Add(this.TB_Search);
+            this.Controls.Add(this.DGV_Books);
             this.Controls.Add(this.LB_Feedback);
             this.Controls.Add(this.B_Save);
             this.Controls.Add(this.B_OpenFile);
@@ -218,6 +276,7 @@
             this.Name = "fBook";
             this.Text = "fBook";
             ((System.ComponentModel.ISupportInitialize)(this.PB_CoverImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Books)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +301,10 @@
         private System.Windows.Forms.Button B_OpenFile;
         private System.Windows.Forms.Button B_Save;
         private System.Windows.Forms.Label LB_Feedback;
+        private System.Windows.Forms.DataGridView DGV_Books;
+        private System.Windows.Forms.TextBox TB_Search;
+        private System.Windows.Forms.Button BT_Delete;
+        private System.Windows.Forms.Button BT_Print;
+        private System.Windows.Forms.Button BT_Edit;
     }
 }

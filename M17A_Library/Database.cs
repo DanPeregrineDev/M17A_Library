@@ -65,9 +65,9 @@ namespace M17A_Library
                       Title VARCHAR(50) NOT NULL,
                       Author VARCHAR(100) NOT NULL,
                       Isbn VARCHAR(13) NOT NULL,
-                      Year INT CHECK(ANO > 0) NOT NULL,
+                      Year INT CHECK(Year > 0) NOT NULL,
                       AquisitionDate DATE DEFAULT GETDATE(),
-                      Price MONEY CHECK(Preco >= 0) NOT NULL,
+                      Price MONEY CHECK(Price >= 0) NOT NULL,
                       CoverImage VARCHAR(500),
                       State BIT DEFAULT 1
 
@@ -91,7 +91,7 @@ namespace M17A_Library
             command.Dispose();
         }
 
-        public DataTable DevelopSQL(string sql, List<SqlParameter> parameters = null)
+        public DataTable ReturnSQL(string sql, List<SqlParameter> parameters = null)
         {
             SqlCommand command = new SqlCommand(sql, sqlConnection);
 
