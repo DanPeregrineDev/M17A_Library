@@ -93,7 +93,68 @@ namespace M17A_Library.Book
 
         public void Edit()
         {
-            throw new NotImplementedException();
+            string sql = @"UPDATE Books SET Title = @title, Author = @author, Isbn = @isbn, Year = @year, AquisitionDate = @aquisitionDate, Price = @price, CoverImage = @coverImage WHERE nBook = @nBook";
+
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter()
+                {
+                    ParameterName = "@Title",
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    Value = this.title
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@Author",
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    Value = this.author
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@Isbn",
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    Value = this.isbn
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@Year",
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    Value = this.year
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@AquisitionDate",
+                    SqlDbType = System.Data.SqlDbType.DateTime,
+                    Value = this.aquisitionDate
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@Price",
+                    SqlDbType = System.Data.SqlDbType.Money,
+                    Value = this.price
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@CoverImage",
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    Value = this.coverImage
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName = "@nBook",
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    Value = this.nBook
+                }
+            };
+
+            database.ExecuteSQL(sql, parameters);
         }
 
         public List<string> Validate()
@@ -126,6 +187,25 @@ namespace M17A_Library.Book
         public DataTable List()
         {
             return database.ReturnSQL("SELECT nBook, Title, Author, ISBN FROM Books ORDER BY Title");
+        }
+
+        public void Search()
+        {
+            string sql = "SELECT * FROM Books WHERE nBook =" + nBook;
+            DataTable data = database.ReturnSQL(sql);
+
+            if (data != null && data.Rows.Count > 0)
+            {
+                DataRow row = data.Rows[0];
+                title = row["Title"].ToString();
+                author = row["Author"].ToString();
+                isbn = row["Isbn"].ToString();
+                year = int.Parse(row["Year"].ToString());
+                aquisitionDate = DateTime.Parse(row["AquisitionDate"].ToString());
+                price = decimal.Parse(row["Price"].ToString());
+                coverImage = row["CoverImage"].ToString();
+                state = bool.Parse(row["State"].ToString());
+            }
         }
     }
 }

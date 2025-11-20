@@ -49,7 +49,6 @@
             this.TB_Search = new System.Windows.Forms.TextBox();
             this.BT_Delete = new System.Windows.Forms.Button();
             this.BT_Print = new System.Windows.Forms.Button();
-            this.BT_Edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PB_CoverImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Books)).BeginInit();
             this.SuspendLayout();
@@ -183,7 +182,7 @@
             // 
             // B_Save
             // 
-            this.B_Save.Location = new System.Drawing.Point(51, 611);
+            this.B_Save.Location = new System.Drawing.Point(51, 620);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(362, 71);
             this.B_Save.TabIndex = 16;
@@ -194,7 +193,7 @@
             // LB_Feedback
             // 
             this.LB_Feedback.AutoSize = true;
-            this.LB_Feedback.Location = new System.Drawing.Point(46, 646);
+            this.LB_Feedback.Location = new System.Drawing.Point(433, 643);
             this.LB_Feedback.Name = "LB_Feedback";
             this.LB_Feedback.Size = new System.Drawing.Size(0, 25);
             this.LB_Feedback.TabIndex = 17;
@@ -237,21 +236,11 @@
             this.BT_Print.Text = "Imprimir";
             this.BT_Print.UseVisualStyleBackColor = true;
             // 
-            // BT_Edit
-            // 
-            this.BT_Edit.Location = new System.Drawing.Point(714, 538);
-            this.BT_Edit.Name = "BT_Edit";
-            this.BT_Edit.Size = new System.Drawing.Size(200, 53);
-            this.BT_Edit.TabIndex = 22;
-            this.BT_Edit.Text = "Editar";
-            this.BT_Edit.UseVisualStyleBackColor = true;
-            // 
             // fBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 724);
-            this.Controls.Add(this.BT_Edit);
             this.Controls.Add(this.BT_Print);
             this.Controls.Add(this.BT_Delete);
             this.Controls.Add(this.TB_Search);
@@ -305,6 +294,5 @@
         private System.Windows.Forms.TextBox TB_Search;
         private System.Windows.Forms.Button BT_Delete;
         private System.Windows.Forms.Button BT_Print;
-        private System.Windows.Forms.Button BT_Edit;
     }
 }

@@ -76,13 +76,21 @@ namespace M17A_Library.Book
                 return;
             }
 
-            newBook.Add();
+            if (nBookSelected == 0)
+            {
+                newBook.Add();
+            } else
+            {
+                newBook.nBook = nBookSelected;
+                newBook.Edit();
+            }
+
 
             if (coverImageFile != "")
             {
                 if (System.IO.File.Exists(coverImageFile) == true)
                 {
-                    System.IO.File.Copy(coverImageFile, newBook.coverImage);
+                    System.IO.File.Copy(coverImageFile, newBook.coverImage, true);
                 }
             }
 
@@ -120,6 +128,11 @@ namespace M17A_Library.Book
 
         private void DGV_Books_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (DGV_Books.CurrentCell == null)
+            {
+                return;
+            }
+
             int line = DGV_Books.CurrentCell.RowIndex;
 
             if (line < 0)
@@ -128,6 +141,22 @@ namespace M17A_Library.Book
             }
 
             nBookSelected = int.Parse(DGV_Books.Rows[line].Cells[0].Value.ToString());
+
+            Book book = new Book(database);
+            book.nBook = nBookSelected;
+            book.Search();
+
+            TB_Title.Text = book.title;
+            TB_Year.Text = book.year.ToString();
+            TB_Author.Text = book.author;
+            TB_ISBN.Text = book.isbn;
+            TB_Price.Text = book.price.ToString();
+            DTP_AquisitionDate.Value = book.aquisitionDate;
+
+            if (System.IO.File.Exists(book.coverImage))
+            {
+                PB_CoverImage.Image = Image.FromFile(book.coverImage);
+            }
         }
 
         private void DeleteBook()
@@ -148,6 +177,7 @@ namespace M17A_Library.Book
                 nBookSelected = 0;
 
                 ListBooks();
+                CleanForm();
             }
         }
 
